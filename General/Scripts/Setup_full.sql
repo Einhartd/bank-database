@@ -6,8 +6,8 @@ CREATE TABLE "security"."user" (
   "user_id" SERIAL PRIMARY KEY,
   "employee_id" integer,
   "client_id" integer,
-  "login" varchar UNIQUE NOT NULL,
-  "password" varchar NOT NULL
+  "login" varchar(20) UNIQUE NOT NULL,
+  "password" varchar(60) NOT NULL
 );
 
 CREATE TABLE "security"."loginHistory" (
@@ -20,22 +20,22 @@ CREATE TABLE "security"."loginHistory" (
 
 CREATE TABLE "security"."login_action_types" (
   "action_type_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."employee" (
   "employee_id" SERIAL PRIMARY KEY,
   "position_id" integer NOT NULL,
-  "name" varchar NOT NULL,
-  "surname" varchar NOT NULL
+  "name" varchar(20) NOT NULL,
+  "surname" varchar(60) NOT NULL
 );
 
 CREATE TABLE "banking"."client" (
   "client_id" SERIAL PRIMARY KEY,
-  "name" varchar NOT NULL,
-  "surname" varchar NOT NULL,
+  "name" varchar(20) NOT NULL,
+  "surname" varchar(60) NOT NULL,
   "pesel" char(11) UNIQUE NOT NULL,
-  "email" varchar UNIQUE NOT NULL
+  "email" varchar(80) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."account" (
@@ -43,7 +43,7 @@ CREATE TABLE "banking"."account" (
   "client_id" integer NOT NULL,
   "currency_id" integer NOT NULL,
   "account_type_id" integer NOT NULL,
-  "number" char(28) UNIQUE NOT NULL,
+  "number" varchar(34) UNIQUE NOT NULL,
   "balance" decimal(12,2) NOT NULL
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE "banking"."card" (
   "account_id" integer NOT NULL,
   "card_type_id" integer NOT NULL,
   "card_status_id" integer NOT NULL,
-  "number" char(19) UNIQUE NOT NULL,
+  "number" varchar(19) UNIQUE NOT NULL,
   "expiry_date" date NOT NULL
 );
 
@@ -77,14 +77,14 @@ CREATE TABLE "banking"."transaction" (
   "amount" decimal(12,2) NOT NULL,
   "time" timestamp NOT NULL,
   "description" text,
-  "counterparty_name" varchar,
-  "counterparty_acc_num" varchar
+  "counterparty_name" varchar(100),
+  "counterparty_acc_num" varchar(34)
 );
 
 CREATE TABLE "banking"."currency" (
   "currency_id" SERIAL PRIMARY KEY,
   "symbol" char(3) UNIQUE NOT NULL,
-  "name" varchar NOT NULL
+  "name" varchar(34) NOT NULL
 );
 
 CREATE TABLE "banking"."exchangeRates" (
@@ -97,37 +97,37 @@ CREATE TABLE "banking"."exchangeRates" (
 
 CREATE TABLE "banking"."positions" (
   "position_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."account_types" (
   "account_type_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."card_types" (
   "card_type_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."card_statuses" (
   "card_status_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."loan_statuses" (
   "loan_status_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."transaction_types" (
   "transaction_type_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE "banking"."transaction_statuses" (
   "transaction_status_id" SERIAL PRIMARY KEY,
-  "name" varchar UNIQUE NOT NULL
+  "name" varchar(30) UNIQUE NOT NULL
 );
 
 -- employee-loan relation - employee fills for loan
