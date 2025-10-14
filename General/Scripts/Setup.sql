@@ -60,6 +60,7 @@ CREATE TABLE "banking"."loan" (
   "loan_id" SERIAL PRIMARY KEY,
   "client_id" integer NOT NULL,
   "loan_status_id" integer NOT NULL,
+  "employee_id" integer NOT NULL,
   "amount" decimal(12,2) NOT NULL,
   "interest_rate" decimal(5,2) NOT NULL,
   "start_date" date NOT NULL
@@ -67,7 +68,8 @@ CREATE TABLE "banking"."loan" (
 
 CREATE TABLE "banking"."transaction" (
   "transaction_id" SERIAL PRIMARY KEY,
-  "account_id" integer,
+  "sender_account_id" integer,
+  "receiver_account_id" integer,
   "card_id" integer,
   "exchange_id" integer,
   "transaction_type_id" integer NOT NULL,
@@ -128,7 +130,10 @@ CREATE TABLE "banking"."transaction_statuses" (
   "name" varchar UNIQUE NOT NULL
 );
 
-alter table banking.account add foreign key ("client_id") references "banking".client ("client_id");
+-- employee-loan relation - employee fills for loan
+ALTER TABLE banking.loan ADD FOREIGN KEY ("employee_id") REFERENCES banking.employee ("employee_id");
+
+ALTER TABLE banking.account ADD FOREIGN KEY ("client_id") REFERENCES "banking".client ("client_id");
 
 ALTER TABLE "security"."user" ADD FOREIGN KEY ("employee_id") REFERENCES "banking"."employee" ("employee_id");
 
@@ -152,7 +157,9 @@ ALTER TABLE "banking"."card" ADD FOREIGN KEY ("card_status_id") REFERENCES "bank
 
 ALTER TABLE "banking"."loan" ADD FOREIGN KEY ("loan_status_id") REFERENCES "banking"."loan_statuses" ("loan_status_id");
 
-ALTER TABLE "banking"."transaction" ADD FOREIGN KEY ("account_id") REFERENCES "banking"."account" ("account_id");
+ALTER TABLE "banking"."transaction" ADD FOREIGN KEY ("sender_account_id") REFERENCES "banking"."account" ("account_id");
+
+ALTER TABLE "banking"."transaction" ADD FOREIGN KEY ("receiver_account_id") REFERENCES "banking"."account" ("account_id");
 
 ALTER TABLE "banking"."transaction" ADD FOREIGN KEY ("card_id") REFERENCES "banking"."card" ("card_id");
 
