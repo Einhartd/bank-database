@@ -6,6 +6,21 @@
     <file url="file://$PROJECT_DIR$/General/Scripts/inserts/02_security_tables.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/inserts/03_banking_dict.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/inserts/04_banking_tables.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/queries/01_top_active_client.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/queries/02_high_risk_loan_detection.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/roles/01_role_admin.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/roles/02_role_employee.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/roles/03_role_client.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/roles/04_roles_users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/01_schemas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/02_tables_security.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/03_tables_parties.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/04_tables_shared.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/05_dict_tables.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/06_tables_domain.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/07_relations.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/setup/08_constraints.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/views/02_employee_views.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>

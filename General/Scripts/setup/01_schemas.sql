@@ -1,15 +1,11 @@
 -- ============================================================================
--- Database Schema Creation Script
--- ============================================================================
--- Description: Creates the main schemas for the banking database system
--- 
--- Schemas:
---   - security: Contains authentication and authorization related tables
---   - banking:  Contains core banking business logic tables
+-- 01_create_schemas.sql
+-- Description: Creates all domain-specific schemas for the banking database.
 -- ============================================================================
 
--- Create security schema for authentication and user management
-CREATE SCHEMA "security";
-
--- Create banking schema for core banking operations
-CREATE SCHEMA "banking";
+CREATE SCHEMA IF NOT EXISTS "security";
+CREATE SCHEMA IF NOT EXISTS "parties";
+CREATE SCHEMA IF NOT EXISTS "accounts";
+CREATE SCHEMA IF NOT EXISTS "transactions";
+CREATE SCHEMA IF NOT EXISTS "loans";
+CREATE SCHEMA IF NOT EXISTS "shared";

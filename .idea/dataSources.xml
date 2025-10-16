@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="banking_system@localhost" uuid="72ae07d2-f3ba-4037-9915-c9cf3d112be2">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>client_test</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/banking_system</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
