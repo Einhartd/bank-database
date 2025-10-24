@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/72ae07d2-f3ba-4037-9915-c9cf3d112be2/console_1.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/Setup_full.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/index/01_simple_index_test.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/index/04_added_simple_indexes.sql" dialect="PostgreSQL" />
@@ -25,6 +24,11 @@
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/07_relations.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/08_constraints.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/views/02_employee_views.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/01_currency_procedures.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/02_exchange_rates_procedures.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/03_dict_procedures.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/04_parties_procedures.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/05_accounts_procedures.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/01_UDF.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/02_UDF_test.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />

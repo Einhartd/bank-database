@@ -7,9 +7,9 @@
   --
  */
 
-CREATE OR REPLACE PROCEDURE shared.sp_AddSymmetricalExchangeRate(
-    p_curr_from_id INT,
-    p_curr_to_id INT,
+CREATE PROCEDURE shared.sp_AddSymmetricalExchangeRate(
+    p_symbol_from CHAR(3),
+    p_symbol_to CHAR(3),
     p_direct_rate DECIMAL(10, 6),
     p_date DATE
 )
@@ -19,44 +19,62 @@ DECLARE
     v_inverse_rate DECIMAL(10, 6);
     v_count_direct INT;
     v_count_inverse INT;
+    v_curr_from_id INT;
+    v_curr_to_id INT;
 BEGIN
+
+    SELECT currency_id INTO v_curr_from_id
+    FROM shared.currency c
+    WHERE c.symbol = p_symbol_from;
+
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Waluta źrodlowa o symbolu "%" nie istnieje w tabeli shared.currency.', p_symbol_from;
+    END IF;
+
+    SELECT currency_id INTO v_curr_to_id
+    FROM shared.currency c
+    WHERE c.symbol = p_symbol_to;
+
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Waluta docelowa o symbolu "%" nie istnieje w tabeli shared.currency.', p_symbol_to;
+    END IF;
+
+    IF v_curr_from_id = v_curr_to_id THEN
+        RAISE EXCEPTION 'Nie mozna dodac kursu wymiany dla tej samej waluty (%).', p_symbol_from;
+    END IF;
 
     SELECT COUNT(*) INTO v_count_direct
     FROM shared."exchangeRates" er
-    WHERE er.curr_from_id = p_curr_from_id
-      AND er.curr_to_id = p_curr_to_id
+    WHERE er.curr_from_id = v_curr_from_id
+      AND er.curr_to_id = v_curr_to_id
       AND er.date = p_date;
 
     SELECT COUNT(*) INTO v_count_inverse
     FROM shared."exchangeRates" er
-    WHERE er.curr_from_id = p_curr_to_id
-      AND er.curr_to_id = p_curr_from_id
+    WHERE er.curr_from_id = v_curr_to_id
+      AND er.curr_to_id = v_curr_from_id
       AND er.date = p_date;
 
     IF v_count_direct = 0 AND v_count_inverse = 0 THEN
 
-        RAISE NOTICE 'Stan 1: Brak kursow dla pary %/%. Dodajemy oba rekordy.',
-            p_curr_from_id, p_curr_to_id;
-
         v_inverse_rate := 1.0 / p_direct_rate;
 
         INSERT INTO shared."exchangeRates" (curr_from_id, curr_to_id, ex_rate, date)
-        VALUES (p_curr_from_id, p_curr_to_id, p_direct_rate, p_date);
+        VALUES (v_curr_from_id, v_curr_to_id, p_direct_rate, p_date);
 
         INSERT INTO shared."exchangeRates" (curr_from_id, curr_to_id, ex_rate, date)
-        VALUES (p_curr_to_id, p_curr_from_id, v_inverse_rate, p_date);
+        VALUES (v_curr_to_id, v_curr_from_id, v_inverse_rate, p_date);
 
         RETURN;
 
     ELSIF v_count_direct = 1 AND v_count_inverse = 1 THEN
-        RAISE NOTICE 'Stan 2: Kursy dla pary %/% na dzien % już sa. Pomijam.',
-            p_curr_from_id, p_curr_to_id, p_date;
+        RAISE NOTICE 'Kursy dla pary %/% na dzien % już sa. Pomijam.',
+            p_symbol_from, p_symbol_to, p_date;
         RETURN;
 
     ELSE
-        RAISE EXCEPTION 'NIESPOJNOSC DANYCH! Tabela exchangeRates jest uszkodzona dla pary %/% na dzien %. ',
-            'Znaleziono % rekordów bezpośrednich i % odwrotnych. Operacja przerwana.',
-            p_curr_from_id, p_curr_to_id, p_date, v_count_direct, v_count_inverse;
+        RAISE EXCEPTION 'NIESPOJNOSC DANYCH! Tabela exchangeRates jest uszkodzona dla pary %/% na dzien %.',
+            p_symbol_from, p_symbol_to, p_date;
     END IF;
 END;
 $$;
