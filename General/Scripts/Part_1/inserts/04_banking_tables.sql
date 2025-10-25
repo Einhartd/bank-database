@@ -52,39 +52,22 @@ INSERT INTO transactions.transaction (sender_account_id, receiver_account_id, ca
 ( 5, 1, NULL, 1, 5, 1, 200.00, '2025-10-10 11:00:00', 'Wymiana 200 EUR na PLN', NULL, NULL),
 ( 1, NULL, NULL, NULL, 1, 1, 250.00, '2025-10-11 14:00:00', 'Czynsz', 'Wynajem Sp. z o.o.', 'PL99102010139999989898989898');
 
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (1, 1, 2, null, null, 1, 1, 250.75, '2025-09-22 10:15:00.000000', 'Zwrot za bilety', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (2, 1, 4, null, null, 1, 1, 1200.00, '2025-10-01 11:00:00.000000', 'Czynsz', 'Wynajem Sp. z o.o.', 'PL99102010139999989898989898');
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (3, 1, 3, null, null, 1, 1, 88.50, '2025-08-30 18:45:00.000000', 'Rozliczenie za kolację', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (4, 5, 1, null, null, 1, 1, 1000.00, '2025-09-15 14:00:00.000000', 'Przelew własny', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (5, null, null, 1, null, 2, 1, 149.99, '2025-10-14 19:30:00.000000', 'Zakupy odzieżowe', 'Zalando', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (6, null, null, 1, null, 2, 1, 55.00, '2025-10-11 13:00:00.000000', 'Lunch', 'Restauracja Smak', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (7, null, null, 1, null, 2, 1, 210.40, '2025-09-05 17:20:00.000000', 'Zakupy spożywcze', 'Auchan', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (8, 5, null, null, null, 4, 1, 200.00, '2025-08-25 09:00:00.000000', 'Wypłata gotówki', 'Bankomat Euronet', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (9, null, null, 2, null, 2, 1, 45.80, '2025-10-02 08:30:00.000000', 'Kawa i kanapka', 'Starbucks', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (10, null, null, 2, null, 2, 1, 78.00, '2025-09-28 20:00:00.000000', 'Bilety do kina', 'Cinema City', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (11, null, null, 5, null, 2, 1, 95.20, '2025-09-18 11:45:00.000000', 'Tankowanie paliwa', 'Stacja BP', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (12, 2, 4, null, null, 1, 1, 300.00, '2025-07-20 16:00:00.000000', 'Prezent urodzinowy', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (13, null, null, 3, null, 2, 1, 129.50, '2025-06-10 14:25:00.000000', 'Książki', 'Empik', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (14, null, 3, null, null, 3, 1, 500.00, '2025-10-05 12:00:00.000000', 'Wpłata od znajomego', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (15, null, null, 4, null, 2, 1, 65.00, '2025-10-08 18:00:00.000000', 'Apteka', 'Apteka Zdrowie', null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (16, 4, 5, null, null, 1, 1, 450.00, '2025-09-02 21:00:00.000000', 'Rachunek za telefon', 'Orange Polska', 'PL22114000001111222233334444');
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (17, 4, 1, null, null, 1, 2, 199.99, '2025-10-16 14:30:00.000000', 'Przelew weryfikacyjny', null, null);
-INSERT INTO transactions.transaction (transaction_id, sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num)
-VALUES (18, 2, 1, null, null, 1, 1, 75.00, '2024-05-10 10:10:00.000000', 'Stary przelew', null, null);
+INSERT INTO transactions.transaction (sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num) VALUES
+( 1, 2, null, null, 1, 1, 250.75, '2025-09-22 10:15:00.000000', 'Zwrot za bilety', null, null),
+( 1, 4, null, null, 1, 1, 1200.00, '2025-10-01 11:00:00.000000', 'Czynsz', 'Wynajem Sp. z o.o.', 'PL99102010139999989898989898'),
+( 1, 3, null, null, 1, 1, 88.50, '2025-08-30 18:45:00.000000', 'Rozliczenie za kolację', null, null),
+( 5, 1, null, null, 1, 1, 1000.00, '2025-09-15 14:00:00.000000', 'Przelew własny', null, null),
+( null, null, 1, null, 2, 1, 149.99, '2025-10-14 19:30:00.000000', 'Zakupy odzieżowe', 'Zalando', null),
+( null, null, 1, null, 2, 1, 55.00, '2025-10-11 13:00:00.000000', 'Lunch', 'Restauracja Smak', null),
+( null, null, 1, null, 2, 1, 210.40, '2025-09-05 17:20:00.000000', 'Zakupy spożywcze', 'Auchan', null),
+( 5, null, null, null, 4, 1, 200.00, '2025-08-25 09:00:00.000000', 'Wypłata gotówki', 'Bankomat Euronet', null),
+( null, null, 2, null, 2, 1, 45.80, '2025-10-02 08:30:00.000000', 'Kawa i kanapka', 'Starbucks', null),
+( null, null, 2, null, 2, 1, 78.00, '2025-09-28 20:00:00.000000', 'Bilety do kina', 'Cinema City', null),
+( null, null, 5, null, 2, 1, 95.20, '2025-09-18 11:45:00.000000', 'Tankowanie paliwa', 'Stacja BP', null),
+(2, 4, null, null, 1, 1, 300.00, '2025-07-20 16:00:00.000000', 'Prezent urodzinowy', null, null),
+( null, null, 3, null, 2, 1, 129.50, '2025-06-10 14:25:00.000000', 'Książki', 'Empik', null),
+( null, 3, null, null, 3, 1, 500.00, '2025-10-05 12:00:00.000000', 'Wpłata od znajomego', null, null),
+( null, null, 4, null, 2, 1, 65.00, '2025-10-08 18:00:00.000000', 'Apteka', 'Apteka Zdrowie', null),
+( 4, 5, null, null, 1, 1, 450.00, '2025-09-02 21:00:00.000000', 'Rachunek za telefon', 'Orange Polska', 'PL22114000001111222233334444'),
+( 4, 1, null, null, 1, 2, 199.99, '2025-10-16 14:30:00.000000', 'Przelew weryfikacyjny', null, null),
+( 2, 1, null, null, 1, 1, 75.00, '2024-05-10 10:10:00.000000', 'Stary przelew', null, null);

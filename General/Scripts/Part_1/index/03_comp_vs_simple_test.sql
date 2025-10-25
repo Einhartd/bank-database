@@ -18,7 +18,6 @@ DROP INDEX IF EXISTS transactions.idx_test_sender_time;
 CREATE INDEX idx_test_sender_id ON transactions.transaction(sender_account_id);
 CREATE INDEX idx_test_time ON transactions.transaction(time);
 
--- Ważne: Odśwież statystyki, aby planer zapytań wiedział o nowych indeksach
 ANALYZE transactions.transaction;
 
 EXPLAIN ANALYZE

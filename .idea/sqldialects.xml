@@ -29,6 +29,7 @@
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/03_dict_procedures.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/04_parties_procedures.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/05_accounts_procedures.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/06_transactions_procedures.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/01_UDF.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/02_UDF_test.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />

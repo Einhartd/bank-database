@@ -17,26 +17,30 @@ BEGIN
         RETURN p_amount;
     END IF;
 
-    -- find exchange rate
+-- Znajdź najnowszy kurs BEZPOŚREDNI (na dzień p_rate_date lub wcześniej)
     SELECT ex_rate INTO v_rate
     FROM shared."exchangeRates" er
     WHERE er.curr_from_id = p_curr_from_id
-    AND er.curr_to_id = p_curr_to_id
-    AND er.date = p_rate_date;
+      AND er.curr_to_id = p_curr_to_id
+      AND er.date <= p_rate_date
+    ORDER BY er.date DESC
+    LIMIT 1;
 
     IF FOUND THEN
-        RETURN p_amount * v_rate;
+        RETURN ROUND(p_amount * v_rate, 2);
     END IF;
 
-    -- if no exchange rate found, try to find reversed
+    -- Jeśli nie ma kursu bezpośredniego, znajdź najnowszy kurs ODWROTNY
     SELECT (1.0 / er.ex_rate) INTO v_rate
     FROM shared."exchangeRates" er
     WHERE er.curr_from_id = p_curr_to_id
-    AND er.curr_to_id = p_curr_from_id
-    AND er.date = p_rate_date;
+      AND er.curr_to_id = p_curr_from_id
+      AND er.date <= p_rate_date
+    ORDER BY er.date DESC
+    LIMIT 1;
 
     IF FOUND THEN
-        RETURN p_amount * v_rate;
+        RETURN ROUND(p_amount * v_rate, 2);
     END IF;
 
     -- if there is still no exchange, abend
