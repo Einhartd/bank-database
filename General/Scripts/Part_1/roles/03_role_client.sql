@@ -4,7 +4,7 @@ CREATE ROLE client_role;
     -- Ograniczony dostęp do odczytu częsci danych w tabelach
     -- login i client_id w security.user
 
-GRANT USAGE ON SCHEMA security, parties, accounts, loans, transactions TO client_role;
+GRANT USAGE ON SCHEMA security, parties, accounts, loans, transactions, shared TO client_role;
 
 GRANT SELECT (client_id, login) ON security.user TO client_role;
 

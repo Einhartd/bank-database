@@ -19,7 +19,8 @@ SELECT
     a.balance,
     c.symbol AS currency,
     at.name AS account_type,
-    a.client_id
+    a.client_id,
+    a.currency_id
 FROM
     accounts.account a
 JOIN

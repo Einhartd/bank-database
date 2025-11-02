@@ -1,0 +1,8 @@
+--- Sat Nov  1 04:10:01 PM CET 2025: Rozpoczynam job (przez wrapper .sh) ---
+Baza danych obsługuje: {'CHF', 'USD', 'EUR'}
+Pobrano 33 kursów z NBP na dzień 2025-10-31.
+Przygotowano 3 obsługiwanych kursów.
+--- Rozpoczynam wstawianie/aktualizację kursów ---
+--- Zakończono ---
+Połączenie z bazą danych zamknięte.
+--- Sat Nov  1 04:10:02 PM CET 2025: Zakończono job ---

@@ -1,37 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/Setup_full.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/index/01_simple_index_test.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/index/04_added_simple_indexes.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/index/05_added_comp_indexes.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/inserts/01_security_dict.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/inserts/02_security_tables.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/inserts/03_banking_dict.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/inserts/04_banking_tables.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/queries/01_top_active_client.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/queries/02_high_risk_loan_detection.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/roles/01_role_admin.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/roles/02_role_employee.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/roles/03_role_client.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/roles/04_roles_users.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/01_schemas.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/02_tables_security.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/03_tables_parties.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/04_tables_shared.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/05_dict_tables.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/06_tables_domain.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/07_relations.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/setup/08_constraints.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_1/views/02_employee_views.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Job/01_script_clean.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Migration/banking_system_localhost-2025_11_02_12_11_37-dump.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Migration/manual/01_schema.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/01_currency_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/02_exchange_rates_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/03_dict_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/04_parties_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/05_accounts_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/06_transactions_procedures.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/01_UDF.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/02_UDF_test.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/Procedures/04_new_employee_procedure.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/01_UDF_employee.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/02_UDF_client.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/General/Scripts/Part_2/UDF/03_UDF_test.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>

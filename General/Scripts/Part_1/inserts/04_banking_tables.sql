@@ -42,7 +42,9 @@ INSERT INTO shared."exchangeRates" (curr_from_id, curr_to_id, ex_rate, date) VAL
 ( 2, 1, 4.25, '2025-10-10'),
 ( 3, 1, 3.98, '2025-10-10'),
 ( 1, 2, 0.23, '2025-10-10'),
-( 1, 3, 0.25, '2025-10-10');
+( 1, 3, 0.25, '2025-10-10'),
+( 4, 1, 4.59, '2025-10-10'),
+( 1, 4, 0.217865, '2025-10-10');
 
 -- banking.transaction (Transakcje)
 INSERT INTO transactions.transaction (sender_account_id, receiver_account_id, card_id, exchange_id, transaction_type_id, transaction_status_id, amount, time, description, counterparty_name, counterparty_acc_num) VALUES

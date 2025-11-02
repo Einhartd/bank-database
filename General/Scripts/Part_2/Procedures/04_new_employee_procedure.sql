@@ -6,7 +6,7 @@
  --
 */
 
-CREATE PROCEDURE parties.sp_AddNewEmployee(
+CREATE PROCEDURE parties.sp_add_new_employee(
     p_name VARCHAR(20),
     p_surname VARCHAR(60),
     p_position_name VARCHAR(30)
@@ -29,4 +29,8 @@ BEGIN
 
     RAISE NOTICE 'Pomyslnie dodano pracownika: % % (Stanowisko: %)', p_name, p_surname, p_position_name;
 END;
-$$
+$$;
+
+REVOKE EXECUTE ON PROCEDURE parties.sp_add_new_employee FROM PUBLIC;
+
+GRANT EXECUTE ON PROCEDURE parties.sp_add_new_employee TO admin_role, oliwier;

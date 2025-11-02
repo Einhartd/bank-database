@@ -6,10 +6,11 @@ Opis: Tworzy przelew krajowy.
 przelew wewnętrzny (z ewentualnym przewalutowaniem).
 - Jeśli konta odbiorcy nie ma w naszym banku, wykonuje
 przelew zewnętrzny (obciąża nadawcę i loguje transakcję).
+Procedura glownie dla systemu do automatycznych platnosci
 Uwaga! Problemy przy migracji przez plpgsql
 --
 */
-CREATE PROCEDURE transactions.sp_CreateDomesticTransfer(
+CREATE PROCEDURE transactions.sp_create_domestic_transfer(
     IN p_sender_account_id INTEGER,
     IN p_receiver_account_number VARCHAR(34),
     IN p_amount DECIMAL(12, 2),
@@ -59,7 +60,7 @@ BEGIN
         v_sender_balance, v_sender_currency_id
     FROM accounts.account
     WHERE account_id = p_sender_account_id
-    FOR UPDATE; -- Kluczowy element blokady
+    FOR UPDATE;
 
     IF NOT FOUND THEN
         RAISE EXCEPTION 'Konto nadawcy (ID: %) nie istnieje.', p_sender_account_id;
@@ -91,7 +92,7 @@ BEGIN
             v_receiver_amount := p_amount;
             v_exchange_id := NULL;
         ELSE
-            v_receiver_amount := shared.fn_convertcurrency(p_amount, v_sender_currency_id, v_receiver_currency_id, CURRENT_DATE);
+            v_receiver_amount := shared.fn_convert_currency(p_amount, v_sender_currency_id, v_receiver_currency_id, CURRENT_DATE);
 
             -- Pobieramy ID kursu do logów (używając tej samej logiki co fn_ConvertCurrency)
             SELECT ex_rate_id
@@ -146,12 +147,15 @@ BEGIN
             time, description, counterparty_name, counterparty_acc_num
         )
         VALUES (
-            p_sender_account_id, NULL, NULL, NULL, -- Kluczowe: receiver_account_id i exchange_id są NULL
+            p_sender_account_id, NULL, NULL, NULL,
             p_transaction_type_id, v_status_pending_id, p_amount,
             NOW(), p_description, p_counterparty_name, p_receiver_account_number
         );
 
     END IF;
-
 END;
 $$;
+
+REVOKE EXECUTE ON PROCEDURE transactions.sp_create_domestic_transfer FROM PUBLIC;
+
+GRANT EXECUTE ON PROCEDURE transactions.sp_create_domestic_transfer TO employee_role, admin_role, oliwier;

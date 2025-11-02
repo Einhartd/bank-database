@@ -7,7 +7,7 @@
   --
  */
 
-CREATE PROCEDURE shared.sp_AddSymmetricalExchangeRate(
+CREATE PROCEDURE shared.sp_add_symmetrical_exchange_rate(
     p_symbol_from CHAR(3),
     p_symbol_to CHAR(3),
     p_direct_rate DECIMAL(10, 6),
@@ -78,4 +78,8 @@ BEGIN
     END IF;
 END;
 $$;
+
+REVOKE EXECUTE ON PROCEDURE shared.sp_add_symmetrical_exchange_rate FROM PUBLIC;
+
+GRANT EXECUTE ON PROCEDURE shared.sp_add_symmetrical_exchange_rate TO employee_role, oliwier, admin_role;
 

@@ -1,6 +1,7 @@
 -- problematyczny przy migracji (z powodu plpgsql)
 -- udf do konwersji walut
-CREATE FUNCTION shared.fn_ConvertCurrency(
+-- udf dostepny dla wszystkich
+CREATE FUNCTION shared.fn_convert_currency(
     p_amount DECIMAL(12, 2),
     p_curr_from_id INT,
     p_curr_to_id INT,
@@ -9,6 +10,7 @@ CREATE FUNCTION shared.fn_ConvertCurrency(
 RETURNS DECIMAL(12, 2)
 LANGUAGE plpgsql
 STABLE
+SECURITY DEFINER -- potrzebna do chwilowego podniesienia uprawnien
 AS $$
 DECLARE
     v_rate DECIMAL(10, 6);
@@ -47,33 +49,3 @@ BEGIN
     RAISE EXCEPTION 'Brak zdefiniowanego kursu wymiany';
 END;
 $$;
-
-
--- udf do sumowania salda klienta z wszystkich kont
--- nie powinno byc problemow z migracja jezeli ConvertCurrency zostanie
--- odpowiednio poprawione
-CREATE FUNCTION accounts.fn_GetClientTotalBalance(
-    p_client_id INT,
-    p_target_currency_id INT,
-    p_calculation_date DATE
-)
-RETURNS DECIMAL(12,2)
-LANGUAGE sql
-STABLE
-AS $$
-    SELECT COALESCE(
-                SUM(
-                    shared.fn_convertcurrency(
-                    a.balance,
-                    a.currency_id,
-                    p_target_currency_id,
-                    p_calculation_date
-                    )
-                ),
-                0.00)
-    FROM
-        accounts.account a
-    WHERE
-        a.client_id = p_client_id;
-$$;
-

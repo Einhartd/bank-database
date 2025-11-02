@@ -7,7 +7,7 @@
   Uwaga: Problemy przy migracji
   --
  */
-CREATE PROCEDURE shared.sp_AddCurrency(
+CREATE PROCEDURE shared.sp_add_currency(
     p_symbol CHAR(3),
     p_name VARCHAR(34)
 )
@@ -30,4 +30,8 @@ BEGIN
 
     RAISE NOTICE 'Umieszczono nowa walute: % (%)', p_name, p_symbol;
 END;
-$$
+$$;
+
+REVOKE EXECUTE ON PROCEDURE shared.sp_add_currency FROM PUBLIC;
+
+GRANT EXECUTE ON PROCEDURE shared.sp_add_currency TO employee_role, oliwier, admin_role;
