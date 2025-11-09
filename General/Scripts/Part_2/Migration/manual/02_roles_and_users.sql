@@ -76,7 +76,7 @@ GRANT SELECT, EXECUTE ON SCHEMA::transactions TO employee_role;
 GRANT SELECT, EXECUTE ON SCHEMA::shared TO employee_role;
 
 
--- client_role (podobne prawa jak employee, ale na innych schematach)
+-- client_role (podobne prawa jak employee, ale na innych schematach) [do usuniecia]
 GRANT SELECT, EXECUTE ON SCHEMA::security TO client_role;
 GRANT SELECT, EXECUTE ON SCHEMA::parties TO client_role;
 GRANT SELECT, EXECUTE ON SCHEMA::accounts TO client_role;

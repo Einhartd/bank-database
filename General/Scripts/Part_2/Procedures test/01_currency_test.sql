@@ -1,5 +1,5 @@
 BEGIN;
-CALL shared.sp_add_currency('CHF', 'Frank szwajcarski');
+CALL shared.sp_add_currency('GBP', 'Funt Brytyjski');
 SELECT * FROM shared.currency;
 ROLLBACK;
 

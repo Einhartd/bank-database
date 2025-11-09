@@ -34,4 +34,41 @@ CREATE TABLE [security].[login_action_types] (
 );
 -- end security tables
 
---
+-- loans tables
+CREATE TABLE [loans].[loan] (
+    [loan_id] INT IDENTITY(1,1) PRIMARY KEY,
+    [client_id] INT NOT NULL,
+    [loan_status_id] INT NOT NULL,
+    [employee_id] INT NOT NULL,
+    [amount] NUMERIC(12,2) NOT NULL,
+    [interest_rate] NUMERIC(5,2) NOT NULL,
+    [start_date] DATE NOT NULL
+);
+
+CREATE TABLE [loans].[loan_statuses] (
+    [loan_status_id] INT IDENTITY(1,1) PRIMARY KEY,
+    [name] VARCHAR(30) UNIQUE NOT NULL
+);
+-- end loans tables
+
+-- parties tables
+CREATE TABLE [parties].[client] (
+    [client_id] INT IDENTITY(1,1) PRIMARY KEY,
+    [name] VARCHAR(20) NOT NULL,
+    [surname] VARCHAR(60) NOT NULL,
+    [pesel] CHAR(11) UNIQUE NOT NULL,
+    [email] VARCHAR(80) UNIQUE NOT NULL
+);
+
+CREATE TABLE [parties].[employee] (
+    [employee_id] INT IDENTITY(1,1) PRIMARY KEY,
+    [position_id] INT NOT NULL,
+    [name] VARCHAR(20) NOT NULL,
+    [surname] VARCHAR(60) NOT NULL
+);
+
+CREATE TABLE [parties].[positions] (
+    [position_id] INT IDENTITY(1,1) PRIMARY KEY,
+    [name] VARCHAR(30) UNIQUE NOT NULL
+);
+
